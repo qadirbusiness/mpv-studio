@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  mpv-backend:
+    build: .
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./uploads:/app/uploads
+      - ./mpv.sqlite:/app/mpv.sqlite
+    environment:
+      - PORT=4000
+      - JWT_SECRET=change_me
+      - DATABASE_FILE=./mpv.sqlite
